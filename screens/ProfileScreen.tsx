@@ -22,7 +22,7 @@ export default function ProfileScreen() {
           }}
           style={styles.image}
           />
-        <Text style={styles.title}>Mmmm</Text>
+        <Text style={styles.title}>Vadim</Text>
         <Text style={styles.subtitle}>123 Followers | 345 Followings</Text>
       </View>
       <MasonryList pins={pins} />
