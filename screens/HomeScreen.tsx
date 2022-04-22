@@ -1,7 +1,7 @@
 import { StyleSheet, Image, ScrollView } from 'react-native';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
-import Pin from '../components/pin';
+import Pin from '../components/Pin';
 import pins from '../assets/data/pins';
 
 export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
