@@ -1,6 +1,6 @@
 import {View, Image, Text, StyleSheet, Pressable} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const Pin = (props) => {
@@ -11,7 +11,11 @@ const Pin = (props) => {
   
     const onLike = () => {};
 
-    Image.getSize(image, (width, height) => setRatio(width / height));
+    useEffect(() => {
+      if(image){
+        Image.getSize(image, (width, height) => setRatio(width / height));
+      }
+    },[image]);//set ratio as image changes
 
     return (
         <View style={styles.pin}>
