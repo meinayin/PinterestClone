@@ -20,6 +20,7 @@ import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../typ
 import LinkingConfiguration from './LinkingConfiguration';
 import PinScreen from '../screens/PinScreen';
 import CreatePinScreen from '../screens/CreatePinScreen';
+import AuthStackNavigator from './AuthStackNavigator';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -40,9 +41,10 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
+      
       <Stack.Screen 
-          name="Root" 
-          component={BottomTabNavigator} 
+          name="Auth" 
+          component={AuthStackNavigator} 
           options={{ headerShown: false }} 
       />
       <Stack.Screen 
