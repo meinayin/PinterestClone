@@ -8,6 +8,7 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>)
   const nhost = useNhostClient();
 
   const [pins, setPins] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchPins = async () => {
     const response = await nhost.graphql.request(`
@@ -26,6 +27,7 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>)
     }else{
       setPins(response.data.pins);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>)
   }, []);
 
   return (
-    <MasonryList pins={pins}/>
+    <MasonryList pins={pins} onRefresh={fetchPins} refreshing={loading} />
   );
 }
 
